@@ -1,9 +1,18 @@
-from flask import Flask
+from flask import Flask, request
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Usage;\nOperation/Value1/Value2>'
+    return 'Usage;\n<Operation>?A=<Value1>&B=<Value2>\n'
+
+
+@app.route('/add')
+def addition():
+    value1=request.args.get('A',default = 0, type = int)
+    value2=request.args.get('B',default = 0, type = int)
+    result=value1+value2
+    return '%d \n' % result
 
 
 if __name__ == "__main__":
