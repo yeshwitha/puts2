@@ -27,9 +27,9 @@ def average():
     if not type(values) is str:
         avrg = statistics.mean(values)
         if avrg.is_integer():
-            return str(int(avrg)) + ' \n'
+            return str(int(avrg))
         else:
-            return str(float((avrg))) + ' \n'
+            return str(float((avrg)))
     else:
         return values
 
