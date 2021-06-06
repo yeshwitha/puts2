@@ -1,18 +1,33 @@
 from flask import Flask, request
+import statistics
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return 'Usage;\n<Operation>?A=<Value1>&B=<Value2>\n'
+def yeshw():
+    try:
+        inputs = request.args.get('X', type=str)
+        inputs = inputs.split(',')
+        values = []
+        for value in inputs:
+            value = float(value)
+            values.append(value)
+        return values
+    except ValueError:
+        Error_msg = "Please enter inputs properly not in p/q form \n"
+        return Error_msg
 
 
-@app.route('/add')
-def addition():
-    value1=request.args.get('A',default = 0, type = int)
-    value2=request.args.get('B',default = 0, type = int)
-    result=value1+value2
-    return '%d \n' % result
+@app.route('/max')
+def maximum():
+    values = yeshw()
+    if not type(values) is str:
+        values.sort(reverse=True)
+        if values[0].is_integer():
+            return str(int(values[0]))
+        else:
+            return str(values[0])
+    else:
+        return values
 
 
 if __name__ == "__main__":
