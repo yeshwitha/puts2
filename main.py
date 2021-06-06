@@ -4,7 +4,7 @@ import statistics
 app = Flask(__name__)
 
 
-def Inputs_method():
+def yeshw():
     try:
         inputs = request.args.get('X', type=str)
         inputs = inputs.split(',')
@@ -23,7 +23,7 @@ def Inputs_method():
 @app.route('/mean')
 
 def average():
-    values = Inputs_method()
+    values = yeshw()
     if not type(values) is str:
         avrg = statistics.mean(values)
         if avrg.is_integer():
