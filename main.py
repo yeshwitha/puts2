@@ -25,7 +25,7 @@ def minimum():
         if values[0].is_integer():
             return str(int(values[0]))
         else:
-            return str(float(round(values[0], 1)))
+            return str(float((values[0])))
     else:
         return values
 
