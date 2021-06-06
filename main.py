@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return 'Usage;\nOperation?A=<Value1>&B=<Value2>\n'
 
-@app.route('/add')
+@app.route('/mul')
 def multiplication():
     try:
         value1=request.args.get('A',default = 0, type = Fraction)
