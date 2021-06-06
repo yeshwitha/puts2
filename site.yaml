@@ -1,0 +1,19 @@
+ - name: Install python packages
+#  connection: local
+   hosts: all
+#   connection: local
+   tasks: 
+    - name: install numpy
+      apt: 
+      name: python3-numpy
+      name: python3
+      name: git
+      name: curl
+      name: update
+    - name: install pip
+      apt: 
+      name: pip
+    - name: install flask
+      pip: name=flask
+           name=ansible
+
