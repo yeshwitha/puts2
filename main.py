@@ -7,8 +7,8 @@ app = Flask(__name__)
 def index():
     return 'Usage;\nOperation?A=<Value1>&B=<Value2>\n'
 
-@app.route('/add')
-def addition():
+@app.route('/sub')
+def subtraction():
     try:
         value1=request.args.get('A',default = 0, type = Fraction)
     except ZeroDivisionError as error:
